@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/TUPOBO/master-complete-react-v4/issues"
   },
-  "homepage": "https://github.com/TUPOBO/master-complete-react-v4#readme"
+  "homepage": "https://github.com/TUPOBO/master-complete-react-v4#readme",
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
 }
