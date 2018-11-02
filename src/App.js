@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 import React from "react";
 import { render } from "react-dom";
+=======
+/* global React ReactDOM */
+>>>>>>> 91cce28d0fe2955d70af1166bcdac6f352f14d56
 
 const Pet = props => {
   return React.createElement("div", {}, [
