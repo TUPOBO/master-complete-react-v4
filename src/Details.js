@@ -7,13 +7,9 @@ const petfinder = pf({
   secret: process.env.API_SECRET
 });
 class Details extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true
-    };
-  }
-
+  state = {
+    loading: true
+  };
   componentDidMount() {
     petfinder.pet
       .get({
@@ -45,7 +41,7 @@ class Details extends Component {
   }
 
   render() {
-    const { animal, breed, location, description } = this.state;
+    const { name, animal, breed, location, description } = this.state;
     if (this.state.loading) {
       return <h1>loading</h1>;
     }
