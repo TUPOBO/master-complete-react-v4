@@ -13,9 +13,14 @@ class Carousel extends Component {
     if (media && media.photos && media.photos.photo) {
       photos = media.photos.photo.filter(photo => photo["@size"] === "pn");
     }
-    console.log(photos);
     return { photos };
   }
+
+  handleIndexClick = event => {
+    this.setState({
+      active: +event.target.dataset.index
+    });
+  };
 
   render() {
     const { photos, active } = this.state;
@@ -24,11 +29,14 @@ class Carousel extends Component {
         <img src={photos[active].value} alt="primary animal" />
         <div className="carousel-smaller">
           {photos.map((photo, index) => (
+            /* eslint-disable-next-line */
             <img
               src={photo.value}
               alt="animal thumbnail"
               key={photo.value}
               className={index === active ? "active" : ""}
+              data-index={index}
+              onClick={this.handleIndexClick}
             />
           ))}
         </div>
