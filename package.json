@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --silent",
+    "test:update": "jest --silent -u",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html"
   },
