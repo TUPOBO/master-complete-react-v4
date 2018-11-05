@@ -13,8 +13,7 @@ class Modal extends React.Component {
     modalRoot.appendChild(this.el);
   }
 
-  // eslint-disable-next-line react/no-deprecated
-  componentWillMount() {
+  componentWillUnmount() {
     modalRoot.removeChild(this.el);
   }
 
