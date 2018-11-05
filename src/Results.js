@@ -1,6 +1,9 @@
 import React from "react";
 import Pet from "./Pet";
 import pf from "petfinder-client";
+import SearchBox from "./SearchBox";
+import { Consumer } from "./SearchContext";
+
 // petfinder 客户端
 const petfinder = pf({
   key: process.env.API_KEY,
@@ -13,10 +16,20 @@ export class Results extends React.Component {
       pets: []
     };
   }
+
   componentDidMount() {
+    this.search();
+  }
+
+  search = () => {
     // 获取宠物列表
     petfinder.pet
-      .find({ output: "full", location: "Seattle, WA" })
+      .find({
+        output: "full",
+        location: this.props.searchParams.location,
+        animal: this.props.searchParams.animal,
+        breed: this.props.searchParams.breed
+      })
       .then(data => {
         let pets;
         // 是否有宠物数据
@@ -33,10 +46,11 @@ export class Results extends React.Component {
           pets
         });
       });
-  }
+  };
   render() {
     return (
       <div className="search">
+        <SearchBox search={this.search} />
         {this.state.pets.map(pet => {
           let breed;
           if (Array.isArray(pet.breeds.breed)) {
@@ -61,4 +75,10 @@ export class Results extends React.Component {
   }
 }
 
-export default Results;
+export default function ResultsWithContext(props) {
+  return (
+    <Consumer>
+      {context => <Results {...props} searchParams={context} />}
+    </Consumer>
+  );
+}
