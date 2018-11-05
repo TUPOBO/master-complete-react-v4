@@ -7,6 +7,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "test": "jest --silent",
     "test:update": "jest --silent -u",
+    "test:watch": "jest --silent --watch",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/index.html"
   },
