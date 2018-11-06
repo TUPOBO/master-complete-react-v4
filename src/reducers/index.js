@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 import location from "./location";
-
+import animal from "./animal";
+import breed from "./breed";
+import breeds from "./breeds";
 /*
   state = {location: 'Seattle, WA'}
   action = {type: 'SET_LOCATION', payload: 'San Francisco, CA'}
@@ -15,5 +17,8 @@ import location from "./location";
 // };
 
 export default combineReducers({
-  location
+  location,
+  animal,
+  breed,
+  breeds
 });
