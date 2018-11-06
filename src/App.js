@@ -5,6 +5,8 @@ import pf from "petfinder-client";
 import { Provider } from "./SearchContext";
 import NavBar from "./NavBar";
 import Loadable from "react-loadable";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "./store";
 
 // petfinder 客户端
 const petfinder = pf({
@@ -35,22 +37,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      location: "Seattle, WA",
       animal: "",
       breed: "",
       breeds: [],
       handleAnimalChange: this.handleAnimalChange,
       handleBreedChange: this.handleBreedChange,
-      handleLocationChange: this.handleLocationChange,
       getBreeds: this.getBreeds
     };
   }
-
-  handleLocationChange = event => {
-    this.setState({
-      location: event.target.value
-    });
-  };
 
   handleAnimalChange = event => {
     this.setState(
@@ -94,13 +88,15 @@ class App extends React.Component {
     return (
       <div>
         <NavBar />
-        <Provider value={this.state}>
-          <Router>
-            <LoadableResults path="/" />
-            <LoadableDetails path="/details/:id" />
-            <LoadableSearchParams path="/search-params" />
-          </Router>
-        </Provider>
+        <ReduxProvider store={store}>
+          <Provider value={this.state}>
+            <Router>
+              <LoadableResults path="/" />
+              <LoadableDetails path="/details/:id" />
+              <LoadableSearchParams path="/search-params" />
+            </Router>
+          </Provider>
+        </ReduxProvider>
       </div>
     );
   }
