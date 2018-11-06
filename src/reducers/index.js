@@ -7,13 +7,13 @@ import location from "./location";
 
 */
 
-const rootReducer = function(state, action) {
-  switch (action.type) {
-    case "SET_LOCATION":
-      return location(state, action);
-  }
-};
+// const rootReducer = function(state, action) {
+//   switch (action.type) {
+//     case "SET_LOCATION":
+//       return location(state, action);
+//   }
+// };
 
-// export default combineReducers({
-//   location
-// });
+export default combineReducers({
+  location
+});
