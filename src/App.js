@@ -1,4 +1,3 @@
-import { render } from "react-dom";
 import React from "react";
 import { Router } from "@reach/router";
 import NavBar from "./NavBar";
@@ -41,4 +40,4 @@ class App extends React.Component {
   }
 }
 
-render(<App />, document.getElementById("root"));
+export default App;
