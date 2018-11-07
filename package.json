@@ -10,7 +10,8 @@
     "test:watch": "jest --silent --watch",
     "test:coverage": "jest --silent --coverage",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "repository": {
     "type": "git",

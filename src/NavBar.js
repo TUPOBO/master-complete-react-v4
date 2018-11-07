@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 import styled, { keyframes } from "react-emotion";
 import colors from "./colors";
 const Container = styled("header")`
-  background-color: ${colors.dark};
+  background-color: ${colors.primary};
   position: sticky;
   top: 0;
   z-index: 10;
@@ -54,6 +54,9 @@ class NavBar extends React.Component {
             🔍
           </SpyGlass>
         </NavLink>
+        <a href="https://github.com/TUPOBO/master-complete-react-v4">
+          <span>Github</span>
+        </a>
       </Container>
     );
   }

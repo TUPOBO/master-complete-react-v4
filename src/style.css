@@ -18,12 +18,16 @@ body {
   padding: 15px;
   border-radius: 5px;
 }
-
+.searchBox {
+  width: 330px;
+  margin: 0 auto;
+}
 .pet {
+  margin-top: 20px;
   width: 80%;
-  height: 100px;
-  background: #000;
-  display: block;
+  height: 150px;
+  display: flex;
+  justify-content: center;
   /* overflow: hidden; */
   margin: 0 auto;
 }
@@ -36,9 +40,12 @@ body {
 .info {
   float: left;
   height: 100px;
+  width: 400px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
+  /* align-items: center; */
 }
 
 .image-container {
@@ -155,7 +162,7 @@ header {
   border: #333 1px solid;
   border-radius: 5px;
   display: block;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   cursor: pointer;
 }
 
