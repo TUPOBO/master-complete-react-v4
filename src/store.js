@@ -4,10 +4,13 @@ import reducer from "./reducers";
 
 const store = createStore(
   reducer,
-  compose(thunk),
-  typeof window === "object" && typeof window.devToolExtension !== "undefined"
-    ? window.devToolExtension()
-    : f => f
+  compose(
+    applyMiddleware(thunk),
+    typeof window === "object" &&
+    typeof window.devToolsExtension !== "undefined"
+      ? window.devToolsExtension()
+      : f => f
+  )
 );
 
 export default store;
